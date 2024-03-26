@@ -21,87 +21,6 @@
     </div>
     <div class="blur" style="display: none"></div>
 
-    {% if error %}
-    <div class="blur_2"></div>
-    <div class="create">
-      <div class="create_alert">
-        <div class="error">
-          {{error}}
-        </div>
-        <form
-          action="{% url 'create_content' %}"
-          method="post"
-          class="create_form"
-        >
-          {% csrf_token %}
-          <div class="form_content_input">
-            <label for="content">: محتوا</label>
-            <textarea
-              type="text"
-              name="content"
-              id="content"
-              class="create_inp_text"
-              dir="rtl"
-            ></textarea>
-          </div>
-
-          <div class="form_block">
-            <input type="submit" class="send_btn" value="ارسال" />
-            <input type="button" class="send_btn back" value="برگشت" />
-
-            <!-- <span class="back send_btn">برگشت</span> -->
-
-            <div class="day_number_div">
-              <input
-                type="text"
-                name="day_number"
-                id="day_number"
-                class="day_number create_inp create_inp_day_number"
-              />
-              <label for="day_number">امروز چندمه؟</label>
-            </div>
-          </div>
-
-          <input
-            type="text"
-            name="month_number"
-            id="month_number"
-            value="{{month_number}}"
-            class="create_inp"
-            style="display: none"
-          />
-          <input
-            type="text"
-            name="year_number"
-            id="year_number"
-            value="{{year_number}}"
-            class="create_inp"
-            style="display: none"
-          />
-          <input
-            type="text"
-            name="width"
-            id="width"
-            value=""
-            class="create_inp"
-            style="display: none"
-          />
-          <input
-            type="text"
-            name="height"
-            id="height"
-            value=""
-            class="create_inp"
-            style="display: none"
-          />
-        </form>
-
-        
-      </div>
-    </div>
-
-    {% endif %}
-
     <div class="create" style="display: none">
       <div class="create_alert">
         <div class="">
@@ -134,8 +53,8 @@
                 name="day_number"
                 id="day_number"
                 class="day_number create_inp create_inp_day_number"
+                style="display: none;"
               />
-              <label for="day_number">امروز چندمه؟</label>
             </div>
           
 
@@ -240,6 +159,7 @@
             {% for inf in days %}
               {% if inf.day_number == day.day %}
                 <div class="title">{{ inf.content }}</div>
+                <div class="day_id" style="display: none;">{{ inf.id }}</div>
               {% endif %}
             {% endfor %}
 

@@ -43,7 +43,7 @@ def delete_content_day(request):
     if request.method == "POST":
         dayid = request.POST["dayid"]
 
-        day = Day.objects.get(id=dayid)
+        day = DaysInformation.objects.get(id=dayid)
 
         month_number = day.month
         year_number = day.year
