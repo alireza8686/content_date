@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-7pe@cbyqz2-d6d$jyfe3y5-zrzqro4fbvqp-cior*)g94qcu-x
 DEBUG = True
 
 ALLOWED_HOSTS = ['mahdiyaranweb.ir']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,8 +40,37 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'panel',
-    'date_app'
+    'date_app',
+    'jalali_date',
 ]
+
+
+# default settings (optional)
+JALALI_DATE_DEFAULTS = {
+   # if change it to true then all dates of the list_display will convert to the Jalali.
+   'LIST_DISPLAY_AUTO_CONVERT': False,
+   'Strftime': {
+        'date': '%y/%m/%d',
+        'datetime': '%H:%M:%S _ %y/%m/%d',
+    },
+    'Static': {
+        'js': [
+            # loading datepicker
+            'admin/js/django_jalali.min.js',
+            # OR
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.core.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/calendar.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc-fa.js',
+            # 'admin/js/main.js',
+        ],
+        'css': {
+            'all': [
+                'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css',
+            ]
+        }
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,6 +165,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/content_date/'
 ADMIN_STATIC_URL = '/static/content_date/admin/'
+
+# STATIC_URL = '/static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

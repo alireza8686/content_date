@@ -13,6 +13,12 @@
   </head>
 
   <body>
+    <div>
+
+      <!-- {{month_calendar}} -->
+
+      
+    </div>
     <div class="blur" style="display: none"></div>
 
     {% if error %}
@@ -224,351 +230,31 @@
             <div class="title">شنبه</div>
           </div>
         </div>
-        <div class="row" id="1">
-          <div class="sqr" id="1">
-            {% for day in days %} {% if day.width == '1' and day.height == '1'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
+        
+        {% for week in month_calendar %}
+        <!-- <div>{{week}}</div> -->
+        <div class="row {% if forloop.last %}last-row{% endif %}" dir="rtl">
+          {% for day in week %}
+          <div class="sqr" >
+            <!-- for days in db -->
+            {% for inf in days %}
+              {% if inf.day_number == day.day %}
+                <div class="title">{{ inf.content }}</div>
+              {% endif %}
+            {% endfor %}
 
-          <div class="sqr" id="2">
-            {% for day in days %} {% if day.width == '2' and day.height == '1'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
+            <div class="sqr_number">{{day.day}}</div>
           </div>
+          {% endfor %}
 
-          <div class="sqr" id="3">
-            {% for day in days %} {% if day.width == '3' and day.height == '1'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="4">
-            {% for day in days %} {% if day.width == '4' and day.height == '1'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="5">
-            {% for day in days %} {% if day.width == '5' and day.height == '1'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="6">
-            {% for day in days %} {% if day.width == '6' and day.height == '1'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="7">
-            {% for day in days %} {% if day.width == '7' and day.height == '1'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
         </div>
-        <div class="row" id="2">
-          <div class="sqr" id="1">
-            {% for day in days %} {% if day.width == '1' and day.height == '2'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
+        {% endfor %}
 
-          <div class="sqr" id="2">
-            {% for day in days %} {% if day.width == '2' and day.height == '2'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
+      {% endif %} 
 
-          <div class="sqr" id="3">
-            {% for day in days %} {% if day.width == '3' and day.height == '2'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="4">
-            {% for day in days %} {% if day.width == '4' and day.height == '2'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="5">
-            {% for day in days %} {% if day.width == '5' and day.height == '2'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="6">
-            {% for day in days %} {% if day.width == '6' and day.height == '2'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="7">
-            {% for day in days %} {% if day.width == '7' and day.height == '2'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-        </div>
-        <div class="row" id="3">
-          <div class="sqr" id="1">
-            {% for day in days %} {% if day.width == '1' and day.height == '3'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="2">
-            {% for day in days %} {% if day.width == '2' and day.height == '3'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="3">
-            {% for day in days %} {% if day.width == '3' and day.height == '3'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="4">
-            {% for day in days %} {% if day.width == '4' and day.height == '3'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="5">
-            {% for day in days %} {% if day.width == '5' and day.height == '3'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="6">
-            {% for day in days %} {% if day.width == '6' and day.height == '3'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="7">
-            {% for day in days %} {% if day.width == '7' and day.height == '3'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-        </div>
-        <div class="row" id="4">
-          <div class="sqr" id="1">
-            {% for day in days %} {% if day.width == '1' and day.height == '4'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="2">
-            {% for day in days %} {% if day.width == '2' and day.height == '4'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="3">
-            {% for day in days %} {% if day.width == '3' and day.height == '4'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="4">
-            {% for day in days %} {% if day.width == '4' and day.height == '4'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="5">
-            {% for day in days %} {% if day.width == '5' and day.height == '4'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="6">
-            {% for day in days %} {% if day.width == '6' and day.height == '4'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="7">
-            {% for day in days %} {% if day.width == '7' and day.height == '4'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-        </div>
-        <div class="row" id="5">
-          <div class="sqr" id="1">
-            {% for day in days %} {% if day.width == '1' and day.height == '5'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="2">
-            {% for day in days %} {% if day.width == '2' and day.height == '5'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="3">
-            {% for day in days %} {% if day.width == '3' and day.height == '5'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="4">
-            {% for day in days %} {% if day.width == '4' and day.height == '5'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="5">
-            {% for day in days %} {% if day.width == '5' and day.height == '5'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="6">
-            {% for day in days %} {% if day.width == '6' and day.height == '5'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="7">
-            {% for day in days %} {% if day.width == '7' and day.height == '5'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-        </div>
-        <div class="row" id="6">
-          <div class="sqr" id="1">
-            {% for day in days %} {% if day.width == '1' and day.height == '6'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="2">
-            {% for day in days %} {% if day.width == '2' and day.height == '6'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="3">
-            {% for day in days %} {% if day.width == '3' and day.height == '6'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="4">
-            {% for day in days %} {% if day.width == '4' and day.height == '6'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="5">
-            {% for day in days %} {% if day.width == '5' and day.height == '6'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="6">
-            {% for day in days %} {% if day.width == '6' and day.height == '6'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-
-          <div class="sqr" id="7">
-            {% for day in days %} {% if day.width == '7' and day.height == '6'%}
-            <div class="title">{{day.content}}</div>
-            <div class="sqr_number">{{day.day_number}}</div>
-            <div class="day_id" style="display: none">{{day.id}}</div>
-            {% endif %} {% endfor %}
-          </div>
-        </div>
-      </div>
-      {% endif %}
-      <div class="sidebar">
+      
+    </div>
+    <div class="sidebar">
         <div class="sidbar_top">
           <div class="btn">
             <form method="POST" action="{% url 'panel' request.user.id %}">
@@ -605,24 +291,24 @@
             </div>
 
             <div class="exact_month">
-              {% if month_number == '01' %}
+              {% if month_number == '1' %}
               <div class="">فروردین</div>
-              {% endif %} {% if month_number == '02' %}
-              <div class="" id="02">اردیبهشت</div>
-              {% endif %} {% if month_number == '03' %}
-              <div class="" id="03">خرداد</div>
-              {% endif %} {% if month_number == '04' %}
-              <div class="" id="04">تیر</div>
-              {% endif %} {% if month_number == '05' %}
-              <div class="" id="05">مرداد</div>
-              {% endif %} {% if month_number == '06' %}
-              <div class="" id="06">شهریور</div>
-              {% endif %} {% if month_number == '07' %}
-              <div class="" id="07">مهر</div>
-              {% endif %} {% if month_number == '08' %}
-              <div class="" id="08">آبان</div>
-              {% endif %} {% if month_number == '09' %}
-              <div class="" id="09">آذر</div>
+              {% endif %} {% if month_number == '2' %}
+              <div class="" id="2">اردیبهشت</div>
+              {% endif %} {% if month_number == '3' %}
+              <div class="" id="3">خرداد</div>
+              {% endif %} {% if month_number == '4' %}
+              <div class="" id="4">تیر</div>
+              {% endif %} {% if month_number == '5' %}
+              <div class="" id="5">مرداد</div>
+              {% endif %} {% if month_number == '6' %}
+              <div class="" id="6">شهریور</div>
+              {% endif %} {% if month_number == '7' %}
+              <div class="" id="7">مهر</div>
+              {% endif %} {% if month_number == '8' %}
+              <div class="" id="8">آبان</div>
+              {% endif %} {% if month_number == '9' %}
+              <div class="" id="9">آذر</div>
               {% endif %} {% if month_number == '10' %}
               <div class="" id="10">دی</div>
               {% endif %} {% if month_number == '11' %}
@@ -644,42 +330,42 @@
             </select>
           </div>
           <div class="month">
-            {% if month_number == '01' %}
-            <div class="list_cnt clicked" id="01">فروردین</div>
+            {% if month_number == '1' %}
+            <div class="list_cnt clicked" id="1">فروردین</div>
             {% else %}
-            <div class="list_cnt" id="01">فروردین</div>
-            {% endif %} {% if month_number == '02' %}
-            <div class="list_cnt clicked" id="02">اردیبهشت</div>
+            <div class="list_cnt" id="1">فروردین</div>
+            {% endif %} {% if month_number == '2' %}
+            <div class="list_cnt clicked" id="2">اردیبهشت</div>
             {% else %}
-            <div class="list_cnt" id="02">اردیبهشت</div>
-            {% endif %} {% if month_number == '03' %}
-            <div class="list_cnt clicked" id="03">خرداد</div>
+            <div class="list_cnt" id="2">اردیبهشت</div>
+            {% endif %} {% if month_number == '3' %}
+            <div class="list_cnt clicked" id="3">خرداد</div>
             {% else %}
-            <div class="list_cnt" id="03">خرداد</div>
-            {% endif %} {% if month_number == '04' %}
-            <div class="list_cnt clicked" id="04">تیر</div>
+            <div class="list_cnt" id="3">خرداد</div>
+            {% endif %} {% if month_number == '4' %}
+            <div class="list_cnt clicked" id="4">تیر</div>
             {% else %}
-            <div class="list_cnt" id="04">تیر</div>
-            {% endif %} {% if month_number == '05' %}
-            <div class="list_cnt clicked" id="05">مرداد</div>
+            <div class="list_cnt" id="4">تیر</div>
+            {% endif %} {% if month_number == '5' %}
+            <div class="list_cnt clicked" id="5">مرداد</div>
             {% else %}
-            <div class="list_cnt" id="05">مرداد</div>
-            {% endif %} {% if month_number == '06' %}
-            <div class="list_cnt clicked" id="06">شهریور</div>
+            <div class="list_cnt" id="5">مرداد</div>
+            {% endif %} {% if month_number == '6' %}
+            <div class="list_cnt clicked" id="6">شهریور</div>
             {% else %}
-            <div class="list_cnt" id="06">شهریور</div>
-            {% endif %} {% if month_number == '07' %}
-            <div class="list_cnt clicked" id="07">مهر</div>
+            <div class="list_cnt" id="6">شهریور</div>
+            {% endif %} {% if month_number == '7' %}
+            <div class="list_cnt clicked" id="7">مهر</div>
             {% else %}
-            <div class="list_cnt" id="07">مهر</div>
-            {% endif %} {% if month_number == '08' %}
-            <div class="list_cnt clicked" id="08">آبان</div>
+            <div class="list_cnt" id="7">مهر</div>
+            {% endif %} {% if month_number == '8' %}
+            <div class="list_cnt clicked" id="8">آبان</div>
             {% else %}
-            <div class="list_cnt" id="08">آبان</div>
-            {% endif %} {% if month_number == '09' %}
-            <div class="list_cnt clicked" id="09">آذر</div>
+            <div class="list_cnt" id="8">آبان</div>
+            {% endif %} {% if month_number == '9' %}
+            <div class="list_cnt clicked" id="9">آذر</div>
             {% else %}
-            <div class="list_cnt" id="09">آذر</div>
+            <div class="list_cnt" id="9">آذر</div>
             {% endif %} {% if month_number == '10' %}
             <div class="list_cnt clicked" id="10">دی</div>
             {% else %}
@@ -696,8 +382,6 @@
           </div>
         </div>
       </div>
-    </div>
-
     <script src="{% static 'panel/js/scripts.js' %}"></script>
   </body>
 </html>
