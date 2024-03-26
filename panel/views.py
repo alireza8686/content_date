@@ -10,7 +10,14 @@ def month_days(year,month):
     year = int(year)
     month = int(month)
 
+    # last_day = calendar.monthrange(year, month)
+    # print(last_day)
     _, last_day = calendar.monthrange(year, month)
+
+    if month == 2:
+        last_day += 3
+    elif month == 12:
+        last_day -= 1
 
     month_calendar = []
     week = []
@@ -24,6 +31,7 @@ def month_days(year,month):
         }
 
         week.append(day_info)
+        print(day,last_day,month)
         if jalali_date.weekday() == 6 or day == last_day:
             month_calendar.append(week)
             week = []
