@@ -155,7 +155,8 @@
             <!-- for days in db -->
             {% for inf in days %}
               {% if inf.day_number == day.day %}
-                <div class="title">{{ inf.content }}</div>
+                <div class="title">{{ inf.content|slice:":80"  }} ...</div>
+                <div class="cnt" style="display: none;">{{ inf.content }}</div>
                 <div class="day_id" style="display: none;">{{ inf.id }}</div>
               {% endif %}
             {% endfor %}
